@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+<link rel="stylesheet" href="APlayer/APlayer.min.css">
 	<head>
 		<title>铁蛋 | 炒鸡温柔好看的小姐姐</title>   
 		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -9,6 +10,39 @@
 		<meta name="Robots" contect= "all">
 		<link rel="stylesheet"  href="style.css">
 	</head>
+	<!--音乐播放器-->
+<div id="aplayer"></div>
+<script src="APlayer/APlayer.min.js"></script>
+<script>
+  const ap = new APlayer({
+        container: document.getElementById('aplayer'),
+        fixed: true,                //是否附着页面底部，否为false
+        autoplay: true,             //是否自动播放，否为false,移动端不能生效
+        volume: 0.4,                //初始音量（0~1）
+        lrcType: 3,                 //歌词模式（1、HTML模式 2、js模式 3、lrc文件模式）
+        mutex: true,                //互斥模式：阻止多个播放器同时播放，当前播放器播放时暂停其他播放器
+        order: 'list',            //音频循环顺序（'list'：顺序, 'random'：随机）
+        preload: 'auto',            //预加载（'none'：不预加载, 'metadata'：元数据, 'auto'：自动）
+        listFolded: true,          //列表默认折叠，开启为true
+        theme: '#FFB6C1',           //主题颜色
+        audio: [{
+            name: '晴天',           //歌曲名称
+            artist: '周杰伦',       //歌曲作者
+            url: 'http://wszyz.7899.cf/qt.mp3',         //歌曲源文件地址
+            cover: 'http://wszyz.7899.cf/head.jpg',     //歌曲封面地址
+            lrc:  'http://wszyz.7899.cf/qt.lrc',        //歌曲的歌词文件
+            theme: '#eeeeee'        //主题颜色（优先）
+        },
+{            
+            name: '七里香',           //歌曲名称
+            artist: '周杰伦',       //歌曲作者
+            url: 'http://wszyz.7899.cf/qlx.mp3',         //歌曲源文件地址
+            cover: 'http://wszyz.7899.cf/head.jpg',     //歌曲封面地址
+            lrc:  'http://wszyz.7899.cf/qlx.lrc',        //歌曲的歌词文件
+            theme: '#eeeeee'        //主题颜色（优先）
+}]
+    });
+</script>
 	<body>
 		<div class="container"><!-- 主体开始 -->
 			<div class="hander"><!-- 导航开始 -->
@@ -103,14 +137,9 @@
 					</section><!-- 站点结束 -->
 				</div><!-- 内容结束 -->
 			</div><!-- 主体结束 -->
-		<div class="footer"><!-- 底部版权 -->
-				<br>Edited By KiTick.<br>铁蛋是我的你们休想！<br>站长QQ:2466596838<br>如有问题，请向站长反馈。
+		<div class="footer"><!-- 底部版权 -->				<br>Edited By KiTick.<br>站长QQ2466596838<br>如有问题请向我反馈<br>铁蛋是我的你们休想！<br> <br> <br> <br>
 			</div><!-- 版权结束 -->
-		<div id="tp-weather-widget"></div><!-- 天气插件 -->
-		
-		
-
-		
+			<div id="tp-weather-widget"></div><!-- 天气插件 -->		
 		<script>
 			(function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
 			window.SeniverseWeatherWidget('show', {
